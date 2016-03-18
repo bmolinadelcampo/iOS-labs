@@ -141,6 +141,37 @@
                                 <animations/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             </view>
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="21k-6J-io1">
+                                <rect key="frame" x="0.0" y="356" width="320" height="96"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="GMt-BR-rgy">
+                                        <rect key="frame" x="93" y="8" width="134" height="30"/>
+                                        <animations/>
+                                        <state key="normal" title="Show alert"/>
+                                        <connections>
+                                            <action selector="showAlert:" destination="BYZ-38-t0r" eventType="touchUpInside" id="UEm-G9-GSm"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zho-RX-fka">
+                                        <rect key="frame" x="24" y="33" width="273" height="30"/>
+                                        <animations/>
+                                        <state key="normal" title="Prompt for name and password"/>
+                                        <connections>
+                                            <action selector="promptForPassword:" destination="BYZ-38-t0r" eventType="touchUpInside" id="PIh-Co-Q2S"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HtI-9x-qnW">
+                                        <rect key="frame" x="57" y="66" width="206" height="30"/>
+                                        <animations/>
+                                        <state key="normal" title="Show action sheet"/>
+                                        <connections>
+                                            <action selector="showActionSheet:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Kqh-1I-r5K"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <animations/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </view>
                         </subviews>
                         <animations/>
                         <color key="backgroundColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.95686274510000002" alpha="1" colorSpace="calibratedRGB"/>
