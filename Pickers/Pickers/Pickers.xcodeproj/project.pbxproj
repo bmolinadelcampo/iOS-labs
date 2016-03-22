@@ -15,6 +15,7 @@
 		97768E261CA186D300070666 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 97768E251CA186D300070666 /* Assets.xcassets */; };
 		97768E291CA186D300070666 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 97768E271CA186D300070666 /* LaunchScreen.storyboard */; };
 		97768E321CA1872300070666 /* ThirdViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 97768E311CA1872300070666 /* ThirdViewController.m */; };
+		97768E361CA1A9CC00070666 /* shows-characters.plist in Resources */ = {isa = PBXBuildFile; fileRef = 97768E351CA1A9CC00070666 /* shows-characters.plist */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -32,6 +33,7 @@
 		97768E2A1CA186D300070666 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		97768E301CA1872300070666 /* ThirdViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ThirdViewController.h; sourceTree = "<group>"; };
 		97768E311CA1872300070666 /* ThirdViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ThirdViewController.m; sourceTree = "<group>"; };
+		97768E351CA1A9CC00070666 /* shows-characters.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "shows-characters.plist"; path = "Pickers/shows-characters.plist"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -50,6 +52,7 @@
 			children = (
 				97768E151CA186D300070666 /* Pickers */,
 				97768E141CA186D300070666 /* Products */,
+				97768E351CA1A9CC00070666 /* shows-characters.plist */,
 			);
 			sourceTree = "<group>";
 		};
@@ -147,6 +150,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				97768E291CA186D300070666 /* LaunchScreen.storyboard in Resources */,
+				97768E361CA1A9CC00070666 /* shows-characters.plist in Resources */,
 				97768E261CA186D300070666 /* Assets.xcassets in Resources */,
 				97768E241CA186D300070666 /* Main.storyboard in Resources */,
 			);

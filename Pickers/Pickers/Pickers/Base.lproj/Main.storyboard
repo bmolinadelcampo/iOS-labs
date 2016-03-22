@@ -96,12 +96,35 @@
                         <viewControllerLayoutGuide type="bottom" id="ny4-3G-ZXf"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="ofn-M8-txt">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <pickerView contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="5TZ-xh-XCY">
+                                <rect key="frame" x="0.0" y="28" width="320" height="216"/>
+                                <animations/>
+                                <connections>
+                                    <outlet property="dataSource" destination="D5D-lC-oRe" id="73b-55-O5E"/>
+                                    <outlet property="delegate" destination="D5D-lC-oRe" id="L3n-Wu-ax3"/>
+                                </connections>
+                            </pickerView>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9Yu-VI-4Nj">
+                                <rect key="frame" x="138" y="286" width="44" height="30"/>
+                                <animations/>
+                                <state key="normal" title="Select"/>
+                                <connections>
+                                    <action selector="myButton:" destination="D5D-lC-oRe" eventType="touchUpInside" id="ioR-oo-FYZ"/>
+                                </connections>
+                            </button>
+                        </subviews>
                         <animations/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
                     <tabBarItem key="tabBarItem" title="Dependent" image="dependenticon" id="34x-35-rXx"/>
+                    <simulatedOrientationMetrics key="simulatedOrientationMetrics"/>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
+                    <connections>
+                        <outlet property="myDependentPicker" destination="5TZ-xh-XCY" id="vgV-eS-3It"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="1h2-bX-kRR" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
