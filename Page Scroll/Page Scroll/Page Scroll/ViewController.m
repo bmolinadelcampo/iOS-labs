@@ -8,9 +8,18 @@
 
 #import "ViewController.h"
 
-@interface ViewController ()
-@property (weak, nonatomic) IBOutlet UIScrollView *myScrollView;
 
+
+@interface ViewController ()
+{
+    BOOL pageControlUsed;
+
+}
+
+@property (weak, nonatomic) IBOutlet UIScrollView *myScrollView;
+@property (weak, nonatomic) IBOutlet UIPageControl *myPageControl;
+
+- (IBAction)changePage:(id)sender;
 @end
 
 @implementation ViewController
@@ -37,13 +46,40 @@ NSInteger kNumImages = 8;
         imageView.frame =myFrame;
         curXLoc += kScrollObjWidth;
         [self.myScrollView addSubview:imageView];
+        [self.myScrollView setDelegate:self];
+        [self.myPageControl setNumberOfPages:kNumImages];
+        [self.myPageControl setCurrentPage:0];
     }
     [self.myScrollView setContentSize:CGSizeMake((kNumImages * kScrollObjWidth), kScrollObjHeight)];
 }
 
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
+- (void)scrollViewDidScroll:(UIScrollView *)scrollView
+{
+    if (pageControlUsed) {
+        return;
+    }
+    CGFloat xOrigin = self.myScrollView.contentOffset.x;
+    CGFloat width = self.myScrollView.bounds.size.width;
+    self.myPageControl.currentPage = round(xOrigin/width);
+}
+
+- (void)scrollViewDidEndDecelerating:(UIScrollView *)scrollView
+{
+    pageControlUsed = NO;
+}
+
+- (void) scrollViewWillBeginDragging:(UIScrollView *)scrollView
+{
+    pageControlUsed = NO;
+}
+
+- (IBAction)changePage:(id)sender {
+    NSInteger page = self.myPageControl.currentPage;
+    CGRect frame = self.myScrollView.frame;
+    frame.origin.x = frame.size.width * page;
+    frame.origin.y = 0;
+    [self.myScrollView scrollRectToVisible:frame animated:YES];
+    pageControlUsed = YES;
 }
 
 @end

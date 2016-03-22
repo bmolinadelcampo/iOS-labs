@@ -28,6 +28,13 @@
                                 <rect key="frame" x="10" y="120" width="300" height="155"/>
                                 <animations/>
                             </scrollView>
+                            <pageControl opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" numberOfPages="3" translatesAutoresizingMaskIntoConstraints="NO" id="Ab4-29-Yxo">
+                                <rect key="frame" x="10" y="283" width="300" height="37"/>
+                                <animations/>
+                                <connections>
+                                    <action selector="changePage:" destination="BYZ-38-t0r" eventType="valueChanged" id="SQH-tb-MzS"/>
+                                </connections>
+                            </pageControl>
                         </subviews>
                         <animations/>
                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
@@ -35,6 +42,7 @@
                     <simulatedOrientationMetrics key="simulatedOrientationMetrics"/>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
                     <connections>
+                        <outlet property="myPageControl" destination="Ab4-29-Yxo" id="dR7-uH-WY3"/>
                         <outlet property="myScrollView" destination="tXW-ce-eTG" id="iYG-2g-8z2"/>
                     </connections>
                 </viewController>
