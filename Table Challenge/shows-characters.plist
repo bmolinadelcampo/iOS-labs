@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>Babylon 5</key>
+	<array>
+		<string>Alexander</string>
+		<string>Byron</string>
+		<string>Delenn</string>
+		<string>Franklin</string>
+		<string>G&apos;Kar</string>
+		<string>Garibaldi</string>
+		<string>Ivanova</string>
+		<string>Lennier</string>
+		<string>Mollari</string>
+		<string>Sheridan</string>
+		<string>Sinclair</string>
+	</array>
+	<key>Doctor Who</key>
+	<array>
+		<string>The Daleks</string>
+		<string>Cybermen</string>
+		<string>The Master</string>
+		<string>The Doctor</string>
+		<string>K9</string>
+		<string>Davros</string>
+		<string>The Sontarans</string>
+		<string>The Silence</string>
+	</array>
+	<key>James Bond</key>
+	<array>
+		<string>Le Chiffre</string>
+		<string>Mr. Big</string>
+		<string>Hugo Drax</string>
+		<string>Dr. Julius No</string>
+		<string>Goldfinger</string>
+		<string>Blofeld</string>
+		<string>Scaramanga</string>
+		<string>Stromberg</string>
+		<string>Jaws</string>
+	</array>
+	<key>Star Trek</key>
+	<array>
+		<string>Kirk</string>
+		<string>Spock</string>
+		<string>McCoy</string>
+		<string>Scotty</string>
+		<string>Sulu</string>
+		<string>Uhura</string>
+		<string>Chekov</string>
+		<string>Chapel</string>
+		<string>Rand</string>
+	</array>
+	<key>Star Wars</key>
+	<array>
+		<string>Han</string>
+		<string>Luke</string>
+		<string>Leia</string>
+		<string>Boba Fett</string>
+		<string>C-3PO
+C-3PO
+</string>
+		<string>Chewbacca</string>
+		<string>Darth Vader</string>
+		<string>Ben Kenobi</string>
+		<string>R2-D2</string>
+	</array>
+	<key>The X-Files</key>
+	<array>
+		<string>Mulder</string>
+		<string>Scully</string>
+		<string>Doggett</string>
+		<string>Reyes</string>
+		<string>Skinner</string>
+		<string>Smoking Man</string>
+		<string>Deep Throat</string>
+		<string>Krycek</string>
+	</array>
+</dict>
+</plist>
