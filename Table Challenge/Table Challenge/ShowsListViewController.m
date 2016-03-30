@@ -44,7 +44,6 @@
 
 - (UITableViewCell *) tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    
     UITableViewCell *showCell = [tableView dequeueReusableCellWithIdentifier:@"showCell" forIndexPath:indexPath];
     showCell.textLabel.text = self.shows[indexPath.row];
     showCell.backgroundColor = self.backgroundColours[indexPath.row];
