@@ -147,5 +147,24 @@
     cell.contentView.backgroundColor = [UIColor clearColor];
 }
 
-
+- (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath
+{
+    PlayingCardCollectionViewCell *cell = (PlayingCardCollectionViewCell *)[collectionView cellForItemAtIndexPath:indexPath];
+    UIImage *backImage = [UIImage imageNamed:@"back.png"];
+    UIImageView *backView = [[UIImageView alloc] initWithImage:backImage];
+    [UIView transitionWithView:cell.contentView
+                      duration:0.7
+                       options:UIViewAnimationOptionTransitionFlipFromLeft
+                    animations:^{[cell.contentView addSubview:backView];}
+                    completion:^(BOOL finished){
+                        if (finished) {
+                            [UIView transitionWithView:cell.contentView
+                                              duration:0.7
+                                               options:UIViewAnimationOptionTransitionFlipFromLeft
+                                            animations:^{[backView removeFromSuperview];}
+                                            completion:NULL];
+                        }
+                    }
+     ];
+}
 @end
