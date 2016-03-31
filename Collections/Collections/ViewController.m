@@ -12,6 +12,10 @@
 @interface ViewController ()
 @property (weak, nonatomic) IBOutlet UICollectionView *myCollectionView;
 @property (strong, nonatomic) NSMutableArray *diamondCardsArray;
+@property (strong, nonatomic) NSMutableArray *spadeCardsArray;
+@property (strong, nonatomic) NSMutableArray *heartCardsArray;
+@property (strong, nonatomic) NSMutableArray *clubCardsArray;
+
 
 @end
 
@@ -21,28 +25,74 @@
     [super viewDidLoad];
     self.view.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"table-background.png"]];
     self.diamondCardsArray = [[NSMutableArray alloc] initWithCapacity:0];
+    self.spadeCardsArray = [[NSMutableArray alloc] initWithCapacity:0];
+    self.clubCardsArray = [[NSMutableArray alloc] initWithCapacity:0];
+    self.heartCardsArray = [[NSMutableArray alloc] initWithCapacity:0];
     
     for (int counter = 1; counter < 14; counter++) {
         NSString *imageName = [NSString stringWithFormat:@"d%i.png", counter];
         UIImage *myImage = [UIImage imageNamed:imageName];
         [self.diamondCardsArray addObject:myImage];
+        
+        imageName = [NSString stringWithFormat:@"s%i.png", counter];
+        myImage = [UIImage imageNamed:imageName];
+        [self.spadeCardsArray addObject:myImage];
+        
+        imageName = [NSString stringWithFormat:@"h%i.png", counter];
+        myImage = [UIImage imageNamed:imageName];
+        [self.heartCardsArray addObject:myImage];
+        
+        imageName = [NSString stringWithFormat:@"c%i.png", counter];
+        myImage = [UIImage imageNamed:imageName];
+        [self.clubCardsArray addObject:myImage];
     }
 }
 
 - (NSInteger)numberOfSectionsInCollectionView:(UICollectionView *)collectionView
 {
-    return 1;
+    return 4;
 }
 
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section
 {
-    return [self.diamondCardsArray count];
+    switch (section) {
+        case 0:
+            return [self.diamondCardsArray count];
+            break;
+        case 1:
+            return [self.spadeCardsArray count];
+            break;
+        case 2:
+            return [self.heartCardsArray count];
+            break;
+        case 3:
+            return [self.clubCardsArray count];
+            break;
+        default:
+            break;
+    }
+    return 0;
 }
 
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath
 {
     PlayingCardCollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"playingCard" forIndexPath:indexPath];
-    cell.cardImage = self.diamondCardsArray[indexPath.row];
+    switch ([indexPath section]) {
+        case 0:
+            cell.cardImage = self.diamondCardsArray[indexPath.row];
+            break;
+        case 1:
+            cell.cardImage = self.spadeCardsArray[indexPath.row];
+            break;
+        case 2:
+            cell.cardImage = self.heartCardsArray[indexPath.row];
+            break;
+        case 3:
+            cell.cardImage = self.clubCardsArray[indexPath.row];
+            break;
+        default:
+            break;
+    }
     return cell;
 }
 
