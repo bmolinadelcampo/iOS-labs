@@ -8,6 +8,7 @@
 
 #import "ViewController.h"
 #import "PlayingCardCollectionViewCell.h"
+#import "PlayingCardHeaderCollectionReusableView.h"
 
 @interface ViewController ()
 @property (weak, nonatomic) IBOutlet UICollectionView *myCollectionView;
@@ -109,5 +110,42 @@
 {
     return UIEdgeInsetsMake(0, 0, 0, 0);
 }
+
+- (UICollectionReusableView *)collectionView:(UICollectionView *)collectionView viewForSupplementaryElementOfKind:(NSString *)kind atIndexPath:(NSIndexPath *)indexPath
+{
+    PlayingCardHeaderCollectionReusableView *headerView = [collectionView dequeueReusableSupplementaryViewOfKind:UICollectionElementKindSectionHeader withReuseIdentifier:@"playingCardHeader" forIndexPath:indexPath];
+    NSString *searchTerm;
+    switch ([indexPath section]) {
+        case 0:
+            searchTerm = @"Diamonds";
+            break;
+        case 1:
+            searchTerm = @"Spades";
+            break;
+        case 2:
+            searchTerm = @"Hearts";
+            break;
+        case 3:
+            searchTerm = @"Clubs";
+            break;
+        default:
+            break;
+    }
+    [headerView setDeckText:searchTerm];
+    return headerView;
+}
+
+- (void)collectionView:(UICollectionView *)collectionView didHighlightItemAtIndexPath:(NSIndexPath *)indexPath
+{
+    PlayingCardCollectionViewCell *cell = (PlayingCardCollectionViewCell *)[collectionView cellForItemAtIndexPath:indexPath];
+    cell.contentView.backgroundColor = [UIColor yellowColor];
+}
+
+- (void)collectionView:(UICollectionView *)collectionView didUnhighlightItemAtIndexPath:(NSIndexPath *)indexPath
+{
+    PlayingCardCollectionViewCell *cell = (PlayingCardCollectionViewCell *)[collectionView cellForItemAtIndexPath:indexPath];
+    cell.contentView.backgroundColor = [UIColor clearColor];
+}
+
 
 @end

@@ -14,6 +14,7 @@
 		97135AF61CAD23EB005D1401 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 97135AF51CAD23EB005D1401 /* Assets.xcassets */; };
 		97135AF91CAD23EB005D1401 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 97135AF71CAD23EB005D1401 /* LaunchScreen.storyboard */; };
 		97135B021CAD2E62005D1401 /* PlayingCardCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 97135B011CAD2E62005D1401 /* PlayingCardCollectionViewCell.m */; };
+		97135B051CAD3C1B005D1401 /* PlayingCardHeaderCollectionReusableView.m in Sources */ = {isa = PBXBuildFile; fileRef = 97135B041CAD3C1B005D1401 /* PlayingCardHeaderCollectionReusableView.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -29,6 +30,8 @@
 		97135AFA1CAD23EB005D1401 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		97135B001CAD2E62005D1401 /* PlayingCardCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PlayingCardCollectionViewCell.h; sourceTree = "<group>"; };
 		97135B011CAD2E62005D1401 /* PlayingCardCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PlayingCardCollectionViewCell.m; sourceTree = "<group>"; };
+		97135B031CAD3C1B005D1401 /* PlayingCardHeaderCollectionReusableView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PlayingCardHeaderCollectionReusableView.h; sourceTree = "<group>"; };
+		97135B041CAD3C1B005D1401 /* PlayingCardHeaderCollectionReusableView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PlayingCardHeaderCollectionReusableView.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -67,6 +70,8 @@
 				97135AF01CAD23EB005D1401 /* ViewController.m */,
 				97135B001CAD2E62005D1401 /* PlayingCardCollectionViewCell.h */,
 				97135B011CAD2E62005D1401 /* PlayingCardCollectionViewCell.m */,
+				97135B031CAD3C1B005D1401 /* PlayingCardHeaderCollectionReusableView.h */,
+				97135B041CAD3C1B005D1401 /* PlayingCardHeaderCollectionReusableView.m */,
 				97135AF21CAD23EB005D1401 /* Main.storyboard */,
 				97135AF51CAD23EB005D1401 /* Assets.xcassets */,
 				97135AF71CAD23EB005D1401 /* LaunchScreen.storyboard */,
@@ -155,6 +160,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				97135AF11CAD23EB005D1401 /* ViewController.m in Sources */,
+				97135B051CAD3C1B005D1401 /* PlayingCardHeaderCollectionReusableView.m in Sources */,
 				97135AEE1CAD23EB005D1401 /* AppDelegate.m in Sources */,
 				97135AEB1CAD23EB005D1401 /* main.m in Sources */,
 				97135B021CAD2E62005D1401 /* PlayingCardCollectionViewCell.m in Sources */,
