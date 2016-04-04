@@ -16,6 +16,7 @@
 @property (strong, nonatomic) NSURLSession *session;
 @property (strong, nonatomic) NSMutableArray *savedImages;
 @property (strong, nonatomic) NSMutableArray *tasksArray;
+@property (nonatomic, strong) UIActivityIndicatorView *myActivityView;
 @property BOOL downloading;
 @end
 
@@ -23,14 +24,10 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    [self initSpinner];
     [self.refreshControl addTarget:self action:@selector(refreshJsonFeed) forControlEvents:UIControlEventValueChanged];
     self.downloading = YES;
     [self fetchJsonFeed];
-}
-
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
@@ -65,6 +62,7 @@
     self.jsonFeed = nil;
     self.songFeed = nil;
     self.songList = nil;
+    [self.myActivityView startAnimating];
     [UIApplication sharedApplication].networkActivityIndicatorVisible = YES;
     
     self.session = [NSURLSession sharedSession];
@@ -134,11 +132,20 @@
         NSLog(@"Outstanding tasks are %lu", (long)[downloadTasks count]);
         if ([downloadTasks count] == 0) {
             dispatch_async(dispatch_get_main_queue(), ^{
+                [self.myActivityView stopAnimating];
                 [UIApplication sharedApplication].networkActivityIndicatorVisible = NO;
                 [self.refreshControl endRefreshing];
                 self.downloading = NO;
             });
         }
     }];
+}
+
+- (void)initSpinner
+{
+    self.myActivityView = [[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleGray];
+    CGPoint newCentre = [self.view center];
+    self.myActivityView.center = newCentre;
+    [self.view addSubview:self.myActivityView];
 }
 @end
