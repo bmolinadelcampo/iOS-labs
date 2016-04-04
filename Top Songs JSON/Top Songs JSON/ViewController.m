@@ -65,6 +65,7 @@
     self.jsonFeed = nil;
     self.songFeed = nil;
     self.songList = nil;
+    [UIApplication sharedApplication].networkActivityIndicatorVisible = YES;
     
     self.session = [NSURLSession sharedSession];
     NSURL *myURL = [NSURL URLWithString:@"https://itunes.apple.com/gb/rss/topalbums/limit=50/json"];
@@ -133,6 +134,7 @@
         NSLog(@"Outstanding tasks are %lu", (long)[downloadTasks count]);
         if ([downloadTasks count] == 0) {
             dispatch_async(dispatch_get_main_queue(), ^{
+                [UIApplication sharedApplication].networkActivityIndicatorVisible = NO;
                 [self.refreshControl endRefreshing];
                 self.downloading = NO;
             });
