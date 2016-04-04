@@ -16,7 +16,7 @@
 @property (strong, nonatomic) NSURLSession *session;
 @property (strong, nonatomic) NSMutableArray *savedImages;
 @property (strong, nonatomic) NSMutableArray *tasksArray;
-@property (nonatomic, strong) UIActivityIndicatorView *myActivityView;
+@property (strong, nonatomic) UIActivityIndicatorView *myActivityView;
 @property BOOL downloading;
 @end
 
