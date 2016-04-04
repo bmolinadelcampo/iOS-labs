@@ -16,12 +16,15 @@
 @property (strong, nonatomic) NSURLSession *session;
 @property (strong, nonatomic) NSMutableArray *savedImages;
 @property (strong, nonatomic) NSMutableArray *tasksArray;
+@property BOOL downloading;
 @end
 
 @implementation ViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    [self.refreshControl addTarget:self action:@selector(refreshJsonFeed) forControlEvents:UIControlEventValueChanged];
+    self.downloading = YES;
     [self fetchJsonFeed];
 }
 
@@ -103,6 +106,7 @@
     } else if (error.code == NSURLErrorTimedOut){
         NSLog(@"task %lu: timed out!", (long)[self.tasksArray indexOfObject:task]);
     }
+    [self checkForRemainingTasks];
 }
 
 - (void)URLSession: (NSURLSession *)session downloadTask:(nonnull NSURLSessionDownloadTask *)downloadTask didFinishDownloadingToURL:(nonnull NSURL *)location
@@ -113,5 +117,26 @@
     self.savedImages[taskID] = [UIImage imageWithData:[NSData dataWithContentsOfURL:location]];
     
     dispatch_async(dispatch_get_main_queue(), ^{[self.tableView reloadData];});
+}
+
+- (void)refreshJsonFeed
+{
+    if (!self.downloading) {
+        self.downloading = YES;
+        [self fetchJsonFeed];
+    }
+}
+
+- (void)checkForRemainingTasks
+{
+    [self.session getTasksWithCompletionHandler:^(NSArray *dataTasks, NSArray *uploadTasks, NSArray *downloadTasks) {
+        NSLog(@"Outstanding tasks are %lu", (long)[downloadTasks count]);
+        if ([downloadTasks count] == 0) {
+            dispatch_async(dispatch_get_main_queue(), ^{
+                [self.refreshControl endRefreshing];
+                self.downloading = NO;
+            });
+        }
+    }];
 }
 @end
