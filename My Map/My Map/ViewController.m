@@ -23,6 +23,14 @@
     CLLocationCoordinate2D theCoordinate = CLLocationCoordinate2DMake(51.51447145, -0.13511896);
     MKCoordinateRegion myRegion = MKCoordinateRegionMakeWithDistance(theCoordinate, 500, 500);
     [self.myMapView setRegion:myRegion animated:YES];
+    
+    CLLocationCoordinate2D lineCoordinates[5] = {{51.51424444936763, -0.14179229736328125}, {51.51521924732889, -0.1418781280517578}, {51.51758271194066, -0.12044191360473633}, {51.513059307310265, -0.12422919273376465}, {51.51217961150812, -0.12362837791442871}};
+    MKPolyline *line = [MKPolyline polylineWithCoordinates:lineCoordinates count:5];
+    [self.myMapView addOverlay:line];
+    [self.myMapView setVisibleMapRect:line.boundingMapRect];
+    
+    MKCircle *circle = [MKCircle circleWithCenterCoordinate:theCoordinate radius:50];
+    [self.myMapView addOverlay:circle];
 }
 
 
@@ -57,6 +65,27 @@
 - (void)mapView:(MKMapView *)mapView annotationView:(MKAnnotationView *)view calloutAccessoryControlTapped:(UIControl *)control
 {
     [[UIApplication sharedApplication] openURL:[NSURL URLWithString:@"http://www.amsys.co.uk"]];
+}
+
+- (MKOverlayRenderer *)mapView:(MKMapView *)mapView rendererForOverlay:(id<MKOverlay>)overlay
+{
+    if ([overlay isKindOfClass:[MKPolyline class]]) {
+        MKPolyline *route = overlay;
+        MKPolylineRenderer *routeRenderer = [[MKPolylineRenderer alloc] initWithPolyline:route];
+        routeRenderer.strokeColor = [[UIColor redColor] colorWithAlphaComponent:0.6];
+        NSArray *pattern = @[@2, @5];
+        [routeRenderer setLineDashPattern:pattern];
+        [routeRenderer setLineWidth:3];
+        return routeRenderer;
+    }else{
+        MKCircle *circle = overlay;
+        MKCircleRenderer *routeRenderer = [[MKCircleRenderer alloc] initWithCircle:circle];
+        routeRenderer.strokeColor = [[UIColor redColor] colorWithAlphaComponent:0.6];
+        routeRenderer.fillColor = [[UIColor cyanColor] colorWithAlphaComponent:0.6];
+        [routeRenderer setLineWidth:2];
+        return routeRenderer;
+    }
+    return nil;
 }
 @end
 
