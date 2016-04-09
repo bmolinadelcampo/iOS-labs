@@ -59,6 +59,7 @@
                             <constraint firstItem="0XM-y9-sOw" firstAttribute="top" secondItem="35T-kS-9rT" secondAttribute="bottom" constant="17" id="Kbo-Rz-Lg5"/>
                             <constraint firstItem="35T-kS-9rT" firstAttribute="top" secondItem="SYR-Wa-9uf" secondAttribute="bottom" constant="8" symbolic="YES" id="OjU-mJ-w2N"/>
                             <constraint firstItem="0XM-y9-sOw" firstAttribute="leading" secondItem="svH-Pt-448" secondAttribute="leadingMargin" id="jAN-mG-DqI"/>
+                            <constraint firstItem="35T-kS-9rT" firstAttribute="centerX" secondItem="svH-Pt-448" secondAttribute="centerX" id="rTq-kN-w8K"/>
                         </constraints>
                     </view>
                     <toolbarItems/>
